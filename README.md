@@ -1,1 +1,1 @@
-# Smart-Health-Disease-prediction-using-django
+# Prasad's Project For Web Engineering (Web Application using django framework)
