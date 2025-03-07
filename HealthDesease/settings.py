@@ -25,7 +25,7 @@ SECRET_KEY = '5_s&43)=k=zn)ch4gx(%zwbbj6zb$!ijbi8wk6em#spkk!yq$5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['luhar-hospital.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['luhar-hospital.onrender.com', 'localhost', '127.0.0.1','https://test411hospital.netlify.app']
 
 
 # Application definition
@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -119,6 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = Path(BASE_DIR) / 'static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = Path.joinpath(BASE_DIR,'media')
