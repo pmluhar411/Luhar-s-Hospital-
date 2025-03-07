@@ -28,7 +28,7 @@ urlpatterns = [
     path('doctor_home', Doctor_Home,name="doctor_home"),
     path('admin_home', Admin_Home,name="admin_home"),
     path('about', About,name="about"),
-    path('contact', Contact,name="contact"),
+
     path('gallery', Gallery,name="gallery"),
     path('login', Login_User,name="login"),
     path('login_admin', Login_admin,name="login_admin"),

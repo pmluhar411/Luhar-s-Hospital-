@@ -3,41 +3,20 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 import datetime
 
-from sklearn.ensemble import GradientBoostingClassifier
+
 
 from .forms import DoctorForm
 from .models import *
 from django.contrib.auth import authenticate, login, logout
-import numpy as np
-import pandas as pd
 
-import matplotlib.pyplot as plt
-import seaborn as sns
-sns.set_style('darkgrid')
 
-from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
-from sklearn.model_selection import train_test_split
 
-from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
-from sklearn.neural_network import MLPClassifier
 from django.http import HttpResponse, HttpResponseRedirect
 # Create your views here.
 
 
 
-from pickle import encode_long
-import numpy as np
-import pandas as pd
-from scipy.stats import mode
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.svm import SVC
-from sklearn.naive_bayes import GaussianNB
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, confusion_matrix
+
 
 def Home(request):
     return render(request,'carousel.html')

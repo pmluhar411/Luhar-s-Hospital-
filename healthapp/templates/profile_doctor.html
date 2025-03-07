@@ -67,7 +67,7 @@
             {{pro.address}}
         </div>
     </div><hr>
-    {% ifnotequal error "pat" %}
+    {% if error == "pat" %}
     <div class="row">
         <div class="col-md-6 div2">
             <strong>Specialist :</strong>
@@ -76,7 +76,7 @@
             {{pro.category}}
         </div>
     </div><hr>
-    {% endifnotequal %}
+    {% endif %}
     <div class="login px-sm-12" style="width:100%">
     <a href="{% url 'edit_profile' %}">
         <button class="btn btn-primary submit mt-4" style="width:100%">Update Detail</button>

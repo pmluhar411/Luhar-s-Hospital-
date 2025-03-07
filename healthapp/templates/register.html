@@ -2,12 +2,12 @@
 {% load static %}
 {% block body %}
 	<!-- register -->
-{% ifequal error "create" %}
+{% if error == "create" %}
 <script>
     alert('Registration Successfull');
     window.location="{% url 'login' %}";
 </script>
-{% endifequal %}
+{% endif %}
 
 
 	<section class="logins py-5">
