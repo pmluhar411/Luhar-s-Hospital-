@@ -82,6 +82,22 @@ h6 {
     }
 }
 
+/* Login */
+@media (max-width: 768px) {
+    .login-wrapper {
+        display: block;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .login-wrapper input {
+        width: 100%;
+    }
+
+    .submit {
+        width: 100%;
+    }
+}
 
 /*--------------------------------------------------------------
 # Back to top button
