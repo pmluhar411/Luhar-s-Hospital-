@@ -47,6 +47,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+
     <style>
       /*
  * ANIMATIONS
@@ -200,11 +201,11 @@
 }
 
 .videoask-embed__button_circle--9FNiq .videoask-embed__video_thumb_wrapper--3OU8O {
-  width: 100px !important;
-  height: 100px !important;
+  width: 100% !important;
+  height: 100p% !important;
   position: relative !important;
   overflow: hidden !important;
-  border-radius: 100px !important;
+  border-radius: 100%  !important;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15) !important;
 }
 
@@ -1063,17 +1064,26 @@
       } );
   } );
   </script>
+   <script>
+    function changeColorOnHover(element) {
+      element.style.color = 'blue'; // Change color on hover
+    }
+
+    function resetColor(element) {
+      element.style.color = '#00008B'; // Reset color when hover is removed
+    }
+  </script>
 
 </head>
 
 <body>
 
   <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-flex align-items-center fixed-top">
+  <div id="topbar" class="d-flex align-items-center fixed-top" style="background-color:#e6e66c">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">prasadluhar411@gmail.com</a>
-        <i class="bi bi-phone"></i> +44 0772199 1717
+        <i class="bi bi-envelope"></i> <a href="mailto:prasadluhar411@gmail.com">prasadluhar411@gmail.com</a>
+        <i class="bi bi-phone"></i> <a href="tel:+44 07721991717">+44 0772199 1717</a>
       </div>
       <div class="d-none d-lg-flex social-links align-items-center">
         <a href="https://x.com/" class="twitter"><i class="fa-brands fa-x-twitter"></i></a>
@@ -1087,8 +1097,9 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-
-      <h1 class="logo me-auto"><a href="index.html">Welcome! Luhar's Hospital</a></h1>
+      <h1 class="logo me-auto"><a href="javascript:location.reload()" style="color: '#00008B';"
+    onmouseover="changeColorOnHover(this);"
+    onmouseout="resetColor(this);">Luhar's Hospital</a></h1>
 
       {% if request.user.is_staff %}
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -1139,11 +1150,12 @@
             </ul>
           </li>
 
-          <li class="dropdown"><a href="#"><span>Predict for</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>Report for</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
 
-              <li><a href="/add_heartdetail">Heart Prediction</a></li>
-              <li><a href="/add_genralhealth">General Health</a></li>
+              <li><a href="/add_heartdetail">Blood Report</a></li>
+              <li><a href="/add_genralhealth">General Report</a></li>
+              <li>TB Report</li>
 
             </ul>
           </li>
@@ -1231,7 +1243,7 @@
       </ul>
     </nav>
       {% endif %}
-
+    </div>
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -1272,17 +1284,17 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Blood Test</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">TB Test</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Appointments</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Online Consultation</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Online Bill Payment</a></li>
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>
-            <p>General health needs include health promotion, preventive care (immunization, general health screening).</p>
+            <p>Stay updated to all the latest news and offers at Luhar's Hospital</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
@@ -1299,10 +1311,6 @@
           &copy; Copyright <strong><span>PRASADKUMAR LUHAR</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/ -->
 
         </div>
       </div>
