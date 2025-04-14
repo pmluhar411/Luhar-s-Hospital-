@@ -3,79 +3,187 @@
 {% extends 'index.html' %}
 {% load static %}
 {% block body %}
-	<!-- register -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luhar's Hospital - Appointment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: ;
+      padding: 0;
+      background-color: #f0f4ff;
+    }
 
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
+    .left-section, .right-section {
+      flex: 1 1 400px;
+      box-sizing: border-box;
+    }
 
-	<section class="logins py-5">
-		<div class="container py-xl-5 py-lg-3">
-			<div class="title-section mb-md-5 mb-4">
-				<h6 class="w3ls-title-sub"></h6>
-				<h3 class="w3ls-title text-uppercase text-dark font-weight-bold">Add Heart Detail</h3>
-			</div><hr/>
-			<div class="login px-sm-12" style="width:100%">
-				<form action="" method="post" enctype="multipart/form-data">
-					{% csrf_token %}
-					<div class="form-group row">
-						<div class="col-md-1">
-						<label>Age</label>
-						<input type="text" class="form-control" name="age"  required="">
-						</div>
-					<div class="col-md-1">
-						<label>Sex</label>
-						<input type="text" class="form-control" name="sex"  required="">
-						</div>
-					<div class="col-md-1">
-						<label>CP</label>
-						<input type="text" class="form-control" name="cp"  required="">
-						</div>
-					<div class="col-md-1">
-						<label>Trestbps</label>
-						<input type="text" class="form-control" name="trestbps"  required="">
-						</div>
-					<div class="col-md-1">
-						<label>Cholestrol</label>
-						<input type="text" class="form-control" name="chole"  required="">
-						</div>
-					<div class="col-md-1">
-						<label>Fbs</label>
-						<input type="text" class="form-control" name="fbs"  required="">
-						</div>
-					<div class="col-md-1">
-						<label>Restecg</label>
-						<input type="text" class="form-control" name="restecg"  required="">
-						</div>
-					<div class="col-md-1">
-						<label>Thalach</label>
-						<input type="text" class="form-control" name="thalach"  required="">
-						</div>
-					<div class="col-md-1">
-						<label>Exang</label>
-						<input type="text" class="form-control" name="exang"  required="">
-						</div>
-					<div class="col-md-1">
-						<label>OldPeak</label>
-						<input type="text" class="form-control" name="old_peak"  required="">
-						</div>
-					<div class="col-md-1">
-						<label>Slope</label>
-						<input type="text" class="form-control" name="slope"  required="">
-						</div>
-					<div class="col-md-1">
-						<label>CA</label>
-						<input type="text" class="form-control" name="ca"  required="">
-						</div>
-					<div class="col-md-1">
-						<label>Thal</label>
-						<input type="text" class="form-control" name="thal"  required="">
-						</div>
+    .left-section {
+      padding-right: 40px;
+    }
 
-					</div>
-					<button type="submit" class="btn btn-primary submit mt-4">Send Heart data</button>
-				</form>
-			</div>
-		</div>
-	</section>
+    .section-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #151b48;
+    }
+
+    .section-sub {
+      margin: 15px 0;
+      color: #6c7a93;
+    }
+
+    .contact-card {
+      background-color: #eaf2ff;
+      border-radius: 12px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-icon {
+      background-color: #ffffff;
+      color: #ff3d71;
+      font-size: 20px;
+      padding: 15px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .contact-text b {
+      color: #000e33;
+    }
+
+    .form-container {
+      background-color: #eaf2ff;
+      border-radius: 12px;
+      padding: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    input, select, textarea {
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      flex: 1 1 45%;
+      background-color: #ffffff;
+    }
+
+    textarea {
+      flex: 1 1 100%;
+      min-height: 100px;
+    }
+
+    button {
+      background-color: #0366ff;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      flex: 1 1 100%;
+    }
+
+    button:hover {
+      background-color: #0251c7;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .left-section {
+        padding-right: 0;
+        margin-bottom: 30px;
+      }
+
+      input, select {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" style="margin-top: 200px;">
+    <!-- Left Content -->
+    <div class="left-section">
+      <h2 class="section-title">Visit Our Doctor</h2>
+      <p class="section-sub">
+        We are here to help you with expert medical care. Our team of doctors is dedicated to your health and well-being. Book an appointment today to consult with our specialists.
+      </p>
+
+      <div class="contact-card">
+        <div class="contact-icon">📞</div>
+        <div class="contact-text">
+          <div>Call Us Now</div>
+          <b>+44 7721 991717</b>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-text">
+          <div>Mail Us Now</div>
+          <b>prasadluhar411@gmail.com</b>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Form -->
+    <div class="right-section">
+      <div class="form-container">
+        <form id="appointmentForm">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <input type="tel" placeholder="Your Mobile" required />
+          <select required>
+            <option value="">Choose Doctor</option>
+            <option>Dr. Prasad Luhar</option>
+            <option>Dr. Kiran Patel</option>
+            <option>Dr. Jenny Lakhani</option>
+          </select>
+          <input type="date" required />
+          <input type="time" required />
+          <textarea placeholder="Describe your problem"></textarea>
+          <button type="submit">Book Appointment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("appointmentForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Appointment booked successfully!");
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
 	<!-- //register -->
 
 {% endblock %}

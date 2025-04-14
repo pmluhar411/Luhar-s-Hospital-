@@ -4,14 +4,50 @@
 
 
 <section id="hero" class="d-flex align-items-center">
-
-    <div class="container">
-      <div style="height: 35vh;"></div>
-      <h1 style="color:#00008B">Welcome! Luhar's Hospital</h1>
-      <h2 style="color:#00008B"> Health and Disease Suggestion Based on Life Orientation</h2>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+    <div class="hero-section" style="position: relative; display: flex; flex-direction: column; padding: 40px;">
+  <div class="hero-top" style="display: flex;">
+    <!-- Left side text -->
+    <div class="hero-text" style="flex: 1;">
+      <h1 style="color:#00008B">WELCOME! LUHAR'S HOSPITAL</h1>
+      <h2 style="margin: 5px 0 20px; color:#00008B">Good Health Is the Root of All Happiness</h2>
     </div>
-    <button class="videoask-embed__button--SgLKO videoask-embed__button_bottom--BJIcx videoask-embed__button_right--V-il1 videoask-embed__button_circle--9FNiq videoask-embed__size_window_tall--g6wQt" aria-label="Hi! How can I help?" style="z-index: 999999 !important; border-color: rgb(127, 0, 255) !important; background-color: rgb(127, 0, 255) !important;">
+  </div>
+
+  <!-- Counters below text but aligned to image side -->
+   <div style="
+        margin-top: 20px;
+        background-color: #007bff;
+        padding: 15px 25px;
+        border-radius: 12px;
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        color: white;
+        width: fit-content;
+      ">
+        <div style="text-align: center;">
+          <h2 class="counter" data-target="24" style="margin: 0;">0</h2>
+          <p style="margin: 0;">Expert Doctors</p>
+        </div>
+
+        <div style="border-left: 2px solid white; height: 40px;"></div>
+
+        <div style="text-align: center;">
+          <h2 class="counter" data-target="411" style="margin: 0;">0</h2>
+          <p style="margin: 0;">Medical Staff</p>
+        </div>
+
+        <div style="border-left: 2px solid white; height: 40px;"></div>
+
+        <div style="text-align: center;">
+          <h2 class="counter" data-target="12206" style="margin: 0;">0</h2>
+          <p style="margin: 0;">Total Patients</p>
+        </div>
+      </div>
+      <div class="hero-text" style="flex: 3;"><a href="#about" class="btn-get-started scrollto">GET STARTED</a></div>
+    </div>
+
+    <button class="videoask-embed__button--SgLKO videoask-embed__button_bottom--BJIcx videoask-embed__button_right--V-il1 videoask-embed__button_circle--9FNiq videoask-embed__size_window_tall--g6wQt" onclick="toggleMinimize(event)" aria-label="Hi! How can I help?" style="z-index: 999999 !important; border-color: rgb(127, 0, 255) !important; background-color: rgb(127, 0, 255) !important;">
         <div class="videoask-embed__label_wrapper--DXf+h" style="font-family: &quot;Apercu Pro&quot;, apercu-pro, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif !important;">Hello,I am Prasad! How can I help?
         </div>
           <div class="videoask-embed__video_thumb_wrapper--3OU8O">
@@ -24,7 +60,8 @@
       </div>
     </div>
   </button>
-  </section><!-- End Hero -->
+  </section>
+<!-- End Hero -->
 
   <main id="main">
 
@@ -43,10 +80,23 @@
           </div>
 
           <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-            <h3>About Treating Your health
+            <h3>Why You Should Trust Us? Get Know About Us!
             </h3>
             <p>The importance of maintaining your health and well being throughout your lifetime by incorporating exercise, diet, preventative health checks, sleep management, managing mental health issues, finding ways to relax and unwind are all important aspects of our health and wellbeing.</p>
-
+            <ul style="list-style: none; padding: 0; margin-top: 10px;">
+    <li style="display: flex; align-items: center; margin-bottom: 10px;">
+      <i class="fas fa-check-circle" style="color: #007bff; margin-right: 10px;"></i>
+      Quality health care
+    </li>
+    <li style="display: flex; align-items: center; margin-bottom: 10px;">
+      <i class="fas fa-check-circle" style="color: #007bff; margin-right: 10px;"></i>
+      Only Qualified Doctors
+    </li>
+    <li style="display: flex; align-items: center;">
+      <i class="fas fa-check-circle" style="color: #007bff; margin-right: 10px;"></i>
+      Medical Research Professionals
+    </li>
+  </ul>
             <div class="icon-box">
               <div class="icon"><i class="bx bx-fingerprint"></i></div>
               <h4 class="title"><a href="">What does general health mean?</a></h4>
@@ -118,7 +168,7 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-wheelchair"></i></div>
-              <h4><a href="">Request Blood</a></h4>
+              <h4><a href="">Orthopedics</a></h4>
               <p>Option for request for blood in your area and without cost.</p>
             </div>
           </div>
@@ -139,12 +189,21 @@
 
 
 
+
+
+
+
+
+
+
+
+
     <!-- ======= Doctors Section ======= -->
     <section id="doctors" class="doctors">
       <div class="container">
 
         <div class="section-title">
-          <h2>Doctors</h2>
+          <h2>Our Experience Doctors</h2>
           <p>General health needs include health promotion, preventive care (immunization, general health screening), treatment of acute and chronic illness, and appropriate referral for more specialized needs where required.</p>
         </div>
 
@@ -154,7 +213,7 @@
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="{% static 'img/doctors/doctor-1.jpg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Pratik Patel</h4>
+                <h4>Kiran Patel</h4>
                 <span>Chief Medical Officer</span>
                 <p>Spine surgery, Minimally invasive spine surgery</p>
                 <div class="social">

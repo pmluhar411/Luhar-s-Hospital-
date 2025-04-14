@@ -30,6 +30,18 @@ class Doctor(models.Model):
     def __str__(self):
         return self.user.username
 
+class Appointment(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    mobile = models.CharField(max_length=15)
+    doctor = models.CharField(max_length=100)
+    date = models.DateField()
+    message = models.TextField(blank=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.date}"
+
+
 class Admin_Helath_CSV(models.Model):
     name = models.CharField(max_length=100, null=True)
     csv_file = models.FileField(null=True, blank=True)

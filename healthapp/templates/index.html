@@ -1049,7 +1049,8 @@
   max-height: initial !important;
   transform: scale(0.8) !important;
   width: auto !important;
-}</style>
+}
+   </style>
 
  <script>
   $(document).ready(function() {
@@ -1097,7 +1098,7 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-      <h1 class="logo me-auto"><a href="javascript:location.reload()" style="color: '#00008B';"
+      <h1 class="logo me-auto"><a href="/#hero" style="color: '#00008B';"
     onmouseover="changeColorOnHover(this);"
     onmouseout="resetColor(this);">Luhar's Hospital</a></h1>
 
@@ -1150,12 +1151,12 @@
             </ul>
           </li>
 
-          <li class="dropdown"><a href="#"><span>Report for</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>Appointment</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
 
-              <li><a href="/add_heartdetail">Blood Report</a></li>
-              <li><a href="/add_genralhealth">General Report</a></li>
-              <li>TB Report</li>
+              <li><a href="/add_heartdetail">Book Appointment</a></li>
+              <li><a href="/add_genralhealth">Blood Report</a></li>
+              <li><a>TB Report</a></li>
 
             </ul>
           </li>
@@ -1180,24 +1181,6 @@
           <li><a class="nav-link scrollto" href="/view_search_pat">Searched Data</a></li>
           <li><a class="nav-link scrollto" href="{% url 'change_password' %}">Password</a></li>
           <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
-          {% comment %} <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li> {% endcomment %}
-          {% comment %} <li><a class="nav-link scrollto" href="#contact">Contact</a></li> {% endcomment %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -1210,22 +1193,8 @@
           <li><a class="nav-link scrollto" href="/#about">About</a></li>
           <li><a class="nav-link scrollto" href="/#services">Services</a></li>
           <li><a class="nav-link scrollto" href="/#doctors">Doctors</a></li>
-          {% comment %} <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li> {% endcomment %}
+          <li><a class="nav-link scrollto" href="/#gallery">Gallery</a></li>
+          <li><a class="nav-link scrollto" href="/contact">Contact Us</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -1235,9 +1204,9 @@
 
           <a href="#" class="appointment-btn scrollto" style="color: #fff;"><span class="d-none d-md-inline">Login</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
+            <li><a href="{% url 'login' %}">Patient Login</a></li>
+            <li><a href="{% url 'login' %}">Doctor Login</a></li>
             <li><a href="{% url 'login_admin' %}">Admin Login</a></li>
-            <li><a href="{% url 'login' %}">User Login</a></li>
-
           </ul>
         </li>
       </ul>
@@ -1334,10 +1303,55 @@
   <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
   <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
   <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const current = +counter.innerText;
+        const increment = target / 100;
+
+        if (current < target) {
+          counter.innerText = Math.ceil(current + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+    });
+  });
+</script>
+
+
 
   <!-- Template Main JS File -->
   <script src="{% static 'js/main.js' %}"></script>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBsrA2Bgw_9TBXJrUHb6xieWvCFCYs5eS8",
+    authDomain: "luhar-hospital.firebaseapp.com",
+    projectId: "luhar-hospital",
+    storageBucket: "luhar-hospital.firebasestorage.app",
+    messagingSenderId: "1090630987084",
+    appId: "1:1090630987084:web:1a621cd1350e082b28b3e9",
+    measurementId: "G-9ZSTCCLPZZ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 
-</html>

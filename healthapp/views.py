@@ -3,9 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 import datetime
 
-
+from healthapp.views import *
 
 from .forms import DoctorForm
+from .forms import AppointmentForm
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 
@@ -20,6 +21,28 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 def Home(request):
     return render(request,'carousel.html')
+
+def appoint(request):
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'success.html')  # or redirect to home with message
+    else:
+        form = AppointmentForm()
+    return render(request, 'carousel.html', {'form': form})
+
+def Contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        # Save or send email, etc.
+        messages.success(request, 'Thank you for contacting us!')
+
+    return render(request, 'contact.html')
+
 
 def Admin_Home(request):
     dis = Search_Data.objects.all()

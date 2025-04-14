@@ -25,7 +25,7 @@ SECRET_KEY = '5_s&43)=k=zn)ch4gx(%zwbbj6zb$!ijbi8wk6em#spkk!yq$5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['luhar-hospital.onrender.com', 'localhost', '127.0.0.1','https://test411hospital.netlify.app']
+ALLOWED_HOSTS = ['luhar-hospital.onrender.com','luhar-hospital.firebaseapp.com', 'localhost', '127.0.0.1','https://test411hospital.netlify.app']
 
 
 # Application definition
